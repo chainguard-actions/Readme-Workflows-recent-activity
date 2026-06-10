@@ -1,6 +1,11 @@
 {
   "owner": "Readme-Workflows",
   "repo": "recent-activity",
-  "version": "",
-  "url": "https://github.com/Readme-Workflows/recent-activity"
+  "version": "v2.4.0",
+  "commit_sha": "8e51a9307f0668b13961ed9a6ef661edff0207f0",
+  "url": "https://github.com/Readme-Workflows/recent-activity",
+  "policy_sha": "d636be7e43ef829af6e853da6b3c7566db9f72fe",
+  "test_policy_sha": "843adf9e4b8f85d0c08b27b9d0b09dd094b54702",
+  "test_agent_version": "1",
+  "harden_agent_version": "1"
 }
