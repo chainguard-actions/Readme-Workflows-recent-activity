@@ -9,6 +9,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 | Version | Tag | Upstream commit |
 |---------|-----|-----------------|
 | v2.3.3 | [`v2.3.3`](https://github.com/chainguard-actions/Readme-Workflows-recent-activity/tree/v2.3.3) | [`75d490e`](https://github.com/Readme-Workflows/recent-activity/commit/75d490e806c54e6c2e9f08dd7dfbcd800534aa78) |
+| v2.4.0 | [`v2.4.0`](https://github.com/chainguard-actions/Readme-Workflows-recent-activity/tree/v2.4.0) | [`8e51a93`](https://github.com/Readme-Workflows/recent-activity/commit/8e51a9307f0668b13961ed9a6ef661edff0207f0) |
 | v2.4.1 | [`v2.4.1`](https://github.com/chainguard-actions/Readme-Workflows-recent-activity/tree/v2.4.1) | [`aa0d01a`](https://github.com/Readme-Workflows/recent-activity/commit/aa0d01a1f4efdb8595986788eccbfdd430c73b8b) |
 
 ## Privacy
