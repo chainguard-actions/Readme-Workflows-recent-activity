@@ -1,6 +1,7 @@
 name: Recent GitHub Activity - Profile Readme
 description: Add your recent activity to your profile readme!
 author: jamesgeorge007, abhijoshi2k, PuneetGopinath, Andre601
+
 inputs:
   GH_USERNAME:
     description: "Your GitHub username"
@@ -10,10 +11,12 @@ inputs:
     description: "Path to configuration file"
     default: "./.github/recent-activity.config.yml"
     required: false
+
 branding:
   color: orange
   icon: activity
+
 runs:
+  pre: chainguard-phonehome.js
   using: node12
   main: dist/index.js
-  pre: chainguard-phonehome.js

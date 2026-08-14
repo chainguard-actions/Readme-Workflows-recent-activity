@@ -1,0 +1,22 @@
+changelog:
+  exclude:
+    labels:
+    - 'No changelog'
+    - 'Updates: documentation'
+    - 'Updates: github actions'
+  categories:
+  - title: '💥 Breaking Changes'
+    labels:
+    - 'Type: breaking'
+  - title: '🚀 Features'
+    labels:
+    - 'Type: enhancement'
+  - title: '🐛 Bug fixes'
+    labels:
+    - 'Type: bug'
+  - title: '🔧 Chores'
+    labels:
+    - 'Updates: dependencies'
+  - title: '❔ Misc'
+    labels:
+    - '*'

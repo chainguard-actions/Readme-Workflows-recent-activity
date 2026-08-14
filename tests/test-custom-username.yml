@@ -1,0 +1,48 @@
+name: Test custom GH_USERNAME input
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Create a minimal README with correct activity placeholder
+        run: |
+          cat > README.md << 'EOF'
+          # Profile
+
+          <!--RECENT_ACTIVITY:start-->
+          <!--RECENT_ACTIVITY:end-->
+          EOF
+
+      - name: Create fake git to avoid real push/pull failures
+        run: |
+          mkdir -p /tmp/fake-git
+          cat > /tmp/fake-git/git << 'GITEOF'
+          #!/bin/sh
+          # Fake git: accept all commands and return success
+          echo "fake-git: $*"
+          exit 0
+          GITEOF
+          chmod +x /tmp/fake-git/git
+          echo "/tmp/fake-git" >> "$GITHUB_PATH"
+
+      - id: action
+        uses: .
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          GH_USERNAME: torvalds
+
+      - name: Assert action ran with custom username
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+        run: |
+          echo "Action outcome: $OUTCOME"
+          if [ "$OUTCOME" = "failure" ]; then
+            echo "FAIL: action failed when using custom GH_USERNAME=torvalds"
+            exit 1
+          fi
+          echo "PASS: action completed with outcome: $OUTCOME"

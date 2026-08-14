@@ -1,0 +1,36 @@
+name: PR Commenter
+
+on:
+  issues:
+    types:
+    - labeled
+    - unlabeled
+  pull_request:
+    types:
+    - labeled
+    - unlabeled
+  discussion:
+    types:
+    - labeled
+    - unlabeled
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  give_comment:
+    if: startsWith(github.head_ref, 'dependabot') == false # Ignore dependabot PRs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
+      with:
+        ref: main
+    - name: Send Pull request comment
+      uses: peaceiris/actions-label-commenter@f0dbbef043eb1b150b566db36b0bdc8b7f505579 # v1.10.0
+      with:
+        github_token: ${{ secrets.LABEL_COMMENTER }}
+      env:
+        RUNNER_DEBUG: 1
